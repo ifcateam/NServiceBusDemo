@@ -16,17 +16,18 @@ class Program
 
         var persistence = endpointConfiguration.UsePersistence<SqlPersistence>();
 
-        var password = Environment.GetEnvironmentVariable("MySqlPassword");
+        var password = "123456";//Environment.GetEnvironmentVariable("MySqlPassword");
         if (string.IsNullOrWhiteSpace(password))
         {
             throw new Exception("Could not extract 'MySqlPassword' from Environment variables.");
         }
-        var username = Environment.GetEnvironmentVariable("MySqlUserName");
+
+        var username = "root";//Environment.GetEnvironmentVariable("MySqlUserName");
         if (string.IsNullOrWhiteSpace(username))
         {
             throw new Exception("Could not extract 'MySqlUserName' from Environment variables.");
         }
-        var connection = $"server=localhost;user={username};database=sqlpersistencesample;port=3306;password={password};AllowUserVariables=True;AutoEnlist=false";
+        var connection = $"server=192.168.137.51;user={username};database=new_schema_Test;port=3306;password={password};AllowUserVariables=True;AutoEnlist=false";
         persistence.SqlDialect<SqlDialect.MySql>();
         persistence.ConnectionBuilder(
             connectionBuilder: () =>
