@@ -7,12 +7,19 @@ class Program
     static async Task Main()
     {
         Console.Title = "Samples.RabbitMQ.Simple";
+
         #region ConfigureRabbit
-        var endpointConfiguration = new EndpointConfiguration("Samples.RabbitMQ.Simple");
+
+        var endpointConfiguration =
+            new EndpointConfiguration("Samples.RabbitMQ.Simple");
         var transport = endpointConfiguration.UseTransport<RabbitMQTransport>();
         transport.UseConventionalRoutingTopology();
-        transport.ConnectionString("host=localhost");
+        transport.ConnectionString("host=192.168.137.51;" +
+                                   "username=admin;" +
+                                   "password=admin");
+
         #endregion
+
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.UsePersistence<InMemoryPersistence>();
 
