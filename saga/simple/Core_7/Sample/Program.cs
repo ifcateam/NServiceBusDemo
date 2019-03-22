@@ -9,7 +9,7 @@ class Program
     static async Task Main()
     {
         Console.Title = "Samples.SimpleSaga rabbitmq&mysql";
-        var endpointConfiguration = new EndpointConfiguration("quarrierSamples.SimpleSaga");
+        var endpointConfiguration = new EndpointConfiguration("quarrierSamples.SimpleSaga2");
 
         #region Persistence
 
